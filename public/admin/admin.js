@@ -438,10 +438,16 @@
         return;
       }
 
-      grid.innerHTML = projects.map(proj => `
+      grid.innerHTML = projects.map(proj => {
+        const hasImg = proj.image_urls && proj.image_urls.length > 0;
+        const thumbHtml = hasImg
+          ? `<img src="${proj.image_urls[0]}" alt="${escHtml(proj.title)}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">`
+          : `<span>${CATEGORY_EMOJIS[proj.category] || '🏗️'}</span>`;
+
+        return `
         <div class="project-admin-card">
           <div class="project-admin-thumb">
-            <span>${CATEGORY_EMOJIS[proj.category] || '🏗️'}</span>
+            ${thumbHtml}
             ${proj.featured ? '<span class="project-admin-featured">⭐ Featured</span>' : ''}
           </div>
           <div class="project-admin-body">
@@ -456,7 +462,8 @@
             </div>
           </div>
         </div>
-      `).join('');
+      `;
+      }).join('');
 
     } catch (err) {
       console.error('[PROJECTS]', err);

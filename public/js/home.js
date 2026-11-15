@@ -84,4 +84,55 @@
     startAutoplay();
   }
 
+  // ── Featured Projects Dynamic Loader ─────────────────────────────────────────
+  const featuredGrid = document.getElementById('featured-projects-grid');
+  if (featuredGrid) {
+    const CATEGORY_EMOJIS = {
+      residential: '🏠',
+      commercial:  '🏢',
+      renovation:  '🔨',
+      interior:    '🎨',
+      structural:  '🏗️',
+      ongoing:     '🚧',
+    };
+
+    fetch('/api/v1/projects?featured=true&limit=3')
+      .then(res => res.json())
+      .then(res => {
+        if (res.success && res.data && res.data.projects && res.data.projects.length > 0) {
+          featuredGrid.innerHTML = res.data.projects.map(p => {
+            const emoji = CATEGORY_EMOJIS[p.category] || '🏗️';
+            const hasImg = p.image_urls && p.image_urls.length > 0;
+            const imgHtml = hasImg
+              ? `<img src="${p.image_urls[0]}" alt="${p.title}" class="project-real-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                 <div class="project-img-placeholder" style="display:none;">${emoji}</div>`
+              : `<div class="project-img-placeholder">${emoji}</div>`;
+            const statusBadge = p.status === 'ongoing'
+              ? `<span class="badge badge-blue" style="position:absolute;top:12px;right:12px;z-index:2;">🚧 Ongoing</span>`
+              : '';
+            return `
+              <div class="project-card" data-category="${p.category}" data-status="${p.status}">
+                <div class="project-img-wrap">
+                  ${imgHtml}
+                  ${statusBadge}
+                  <div class="project-overlay">
+                    <a href="/projects" class="project-view-btn">View Details</a>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <span class="project-category">${p.category.charAt(0).toUpperCase() + p.category.slice(1)}</span>
+                  <h3 class="project-title">${p.title}</h3>
+                  <div class="project-meta">
+                    <span class="project-meta-item">📍 ${p.location}</span>
+                    ${p.area_sqft ? `<span class="project-meta-item">📐 ${p.area_sqft.toLocaleString()} sqft</span>` : ''}
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+      })
+      .catch(err => console.error('[FEATURED PROJECTS]', err));
+  }
+
 })();

@@ -83,10 +83,12 @@ router.post('/projects', authenticateAdmin, (req, res) => {
 router.patch('/projects/:id', authenticateAdmin, (req, res) => {
   const { title, description, category, location, status, area_sqft, year_completed, client_name, image_urls, featured } = req.body;
   const db = getDb();
+  const existing = db.prepare('SELECT image_urls FROM projects WHERE id=?').get(req.params.id);
+  const finalImages = image_urls !== undefined ? JSON.stringify(image_urls || []) : (existing ? existing.image_urls : '[]');
   db.prepare(`
     UPDATE projects SET title=?, description=?, category=?, location=?, status=?, area_sqft=?, year_completed=?, client_name=?, image_urls=?, featured=?, updated_at=datetime('now')
     WHERE id=?
-  `).run(title, description, category, location, status, area_sqft, year_completed, client_name, JSON.stringify(image_urls || []), featured ? 1 : 0, req.params.id);
+  `).run(title, description, category, location, status, area_sqft, year_completed, client_name, finalImages, featured ? 1 : 0, req.params.id);
   res.json({ success: true, message: 'Project updated.' });
 });
 

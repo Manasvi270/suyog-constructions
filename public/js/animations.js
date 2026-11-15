@@ -358,7 +358,7 @@
       { icon: '🏢', text: 'Commercial Construction' },
       { icon: '🔨', text: 'Expert Renovation' },
       { icon: '👷', text: '50+ Expert Professionals' },
-      { icon: '📍', text: 'Serving All of Pune' },
+      { icon: '📍', text: 'Serving All of Solapur' },
       { icon: '💰', text: 'Transparent Pricing' },
       { icon: '🎨', text: 'Premium Interior Design' },
     ];
@@ -398,7 +398,7 @@
   if (hero && heroContent) {
     const badges = [
       { icon: '🏆', strong: 'Award Winning', sub: 'Construction Company' },
-      { icon: '✅', strong: '500+ Happy Clients', sub: 'Across Pune' },
+      { icon: '✅', strong: '500+ Happy Clients', sub: 'Across Solapur' },
     ];
 
     badges.forEach((b, idx) => {

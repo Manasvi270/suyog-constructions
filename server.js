@@ -11,6 +11,7 @@ const inquiryRoutes = require('./src/routes/inquiry');
 const contactRoutes = require('./src/routes/contact');
 const projectRoutes = require('./src/routes/projects');
 const adminRoutes = require('./src/routes/admin');
+const aiAdvisorRoutes = require('./src/routes/aiAdvisor');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -53,6 +54,7 @@ app.use('/api/v1/inquiry', inquiryRoutes);
 app.use('/api/v1/contact', contactRoutes);
 app.use('/api/v1/projects', projectRoutes);
 app.use('/api/v1/admin', adminRoutes);
+app.use('/api/v1/ai-advisor', aiAdvisorRoutes);
 
 // ── Health Check ────────────────────────────────────────────────────────────
 app.get('/api/health', (req, res) => {

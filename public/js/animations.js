@@ -114,111 +114,13 @@
 
 
   // ══════════════════════════════════════════════════════════════════════════
-  // 3. TYPEWRITER EFFECT — HERO TITLE
+  // 3. HERO TITLE REVEAL (Clean & i18n-friendly, no DOM tokenizing)
   // ══════════════════════════════════════════════════════════════════════════
   const heroTitle = $('.hero-title');
-
-  function typewriteHeroTitle(titleEl) {
-    if (!titleEl) return;
-
-    // Build word groups preserving spans and <br>
-    // We'll reconstruct char-by-char after a short page-load delay
-    const originalHTML = titleEl.innerHTML;
-
-    // Parse into tokens: text chars, <br>, <span> … </span>
-    function* tokenize(html) {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(`<div>${html}</div>`, 'text/html');
-      const root = doc.querySelector('div');
-      for (const node of root.childNodes) {
-        if (node.nodeType === Node.TEXT_NODE) {
-          for (const ch of node.textContent) {
-            yield { type: 'char', value: ch };
-          }
-        } else if (node.nodeName === 'BR') {
-          yield { type: 'br' };
-        } else if (node.nodeName === 'SPAN') {
-          yield { type: 'span-open', classes: node.className };
-          for (const ch of node.textContent) {
-            yield { type: 'char', value: ch, insideSpan: true };
-          }
-          yield { type: 'span-close' };
-        }
-      }
-    }
-
-    const tokens = [...tokenize(originalHTML)];
-
-    // Clear title
-    titleEl.innerHTML = '';
-    titleEl.style.opacity = '1';
-    titleEl.style.transform = 'none';
-
-    let currentSpan = null;
-    let container = titleEl;
-
-    // Insert cursor
-    const cursor = document.createElement('span');
-    cursor.className = 'typewriter-cursor';
-    cursor.style.height = '0.85em';
-    titleEl.appendChild(cursor);
-
-    let i = 0;
-    const BASE_DELAY = 28; // ms per character
-    const SPACE_DELAY = 14;
-
-    function renderNext() {
-      if (i >= tokens.length) {
-        // Remove cursor after a moment
-        setTimeout(() => cursor.remove(), 1200);
-        return;
-      }
-
-      const token = tokens[i++];
-
-      if (token.type === 'br') {
-        const br = document.createElement('br');
-        titleEl.insertBefore(br, cursor);
-        setTimeout(renderNext, BASE_DELAY * 3);
-
-      } else if (token.type === 'span-open') {
-        currentSpan = document.createElement('span');
-        currentSpan.className = token.classes;
-        titleEl.insertBefore(currentSpan, cursor);
-        container = currentSpan;
-        setTimeout(renderNext, 0);
-
-      } else if (token.type === 'span-close') {
-        currentSpan = null;
-        container = titleEl;
-        setTimeout(renderNext, 0);
-
-      } else if (token.type === 'char') {
-        const charEl = document.createElement('span');
-        charEl.className = 'char-reveal';
-        charEl.style.animationDelay = '0ms';
-        charEl.textContent = token.value === ' ' ? '\u00A0' : token.value;
-
-        if (container !== titleEl) {
-          container.appendChild(charEl);
-        } else {
-          titleEl.insertBefore(charEl, cursor);
-        }
-
-        const delay = token.value === ' ' ? SPACE_DELAY : BASE_DELAY;
-        setTimeout(renderNext, delay);
-      }
-    }
-
-    // Start typewriter after page entrance animation (~600ms)
-    setTimeout(renderNext, 700);
-  }
-
   if (heroTitle) {
-    // Prevent the default reveal animation for the hero title
-    heroTitle.classList.remove('reveal');
-    heroTitle.style.opacity = '0';
-    typewriteHeroTitle(heroTitle);
+    heroTitle.style.opacity = '1';
+    heroTitle.style.transform = 'none';
+    heroTitle.classList.add('visible');
   }
 
 
@@ -351,16 +253,16 @@
 
   if (stats && projects) {
     const items = [
-      { icon: '🏗️', text: '500+ Projects Completed' },
-      { icon: '⭐', text: 'ISO Certified Quality' },
-      { icon: '⏱️', text: '98% On-Time Delivery' },
-      { icon: '🏠', text: 'Residential Excellence' },
-      { icon: '🏢', text: 'Commercial Construction' },
-      { icon: '🔨', text: 'Expert Renovation' },
-      { icon: '👷', text: '50+ Expert Professionals' },
-      { icon: '📍', text: 'Serving All of Solapur' },
-      { icon: '💰', text: 'Transparent Pricing' },
-      { icon: '🎨', text: 'Premium Interior Design' },
+      { icon: '🏗️', key: 'marquee_1', text: '500+ Projects Completed' },
+      { icon: '⭐', key: 'marquee_2', text: 'ISO Certified Quality' },
+      { icon: '⏱️', key: 'marquee_3', text: '98% On-Time Delivery' },
+      { icon: '🏠', key: 'marquee_4', text: 'Residential Excellence' },
+      { icon: '🏢', key: 'marquee_5', text: 'Commercial Construction' },
+      { icon: '🔨', key: 'marquee_6', text: 'Expert Renovation' },
+      { icon: '👷', key: 'marquee_7', text: '50+ Expert Professionals' },
+      { icon: '📍', key: 'marquee_8', text: 'Serving All of Solapur' },
+      { icon: '💰', key: 'marquee_9', text: 'Transparent Pricing' },
+      { icon: '🎨', key: 'marquee_10', text: 'Premium Interior Design' },
     ];
 
     // Duplicate for seamless loop
@@ -378,7 +280,7 @@
       el.className = 'marquee-item';
       el.innerHTML = `
         <span class="marquee-icon">${item.icon}</span>
-        <span>${item.text}</span>
+        <span data-i18n="${item.key}">${item.text}</span>
         ${idx < allItems.length - 1 ? '<span class="marquee-sep"></span>' : ''}
       `;
       track.appendChild(el);
@@ -397,8 +299,8 @@
 
   if (hero && heroContent) {
     const badges = [
-      { icon: '🏆', strong: 'Award Winning', sub: 'Construction Company' },
-      { icon: '✅', strong: '500+ Happy Clients', sub: 'Across Solapur' },
+      { icon: '🏆', strongKey: 'badge_award_strong', strong: 'Award Winning', subKey: 'badge_award_sub', sub: 'Construction Company' },
+      { icon: '✅', strongKey: 'badge_clients_strong', strong: '500+ Happy Clients', subKey: 'badge_clients_sub', sub: 'Across Solapur' },
     ];
 
     badges.forEach((b, idx) => {
@@ -408,8 +310,8 @@
       el.innerHTML = `
         <div class="hero-float-badge-icon">${b.icon}</div>
         <div class="hero-float-badge-text">
-          <strong>${b.strong}</strong>
-          <span>${b.sub}</span>
+          <strong data-i18n="${b.strongKey}">${b.strong}</strong>
+          <span data-i18n="${b.subKey}">${b.sub}</span>
         </div>
       `;
       hero.appendChild(el);

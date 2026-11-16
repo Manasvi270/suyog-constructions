@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Suyog Constructions — Building Dreams, Crafting Excellence</title>
-  <meta name="description" content="Suyog Constructions — Your trusted partner for residential, commercial, and renovation construction projects in Solapur. 15+ years of excellence, 500+ completed projects, 500+ happy clients.">
-  <meta name="keywords" content="construction company solapur, residential construction, commercial construction, renovation, building contractor, suyog constructions">
+  <meta name="description"
+    content="Suyog Constructions — Your trusted partner for residential, commercial, and renovation construction projects in Solapur. 15+ years of excellence, 500+ completed projects, 500+ happy clients.">
+  <meta name="keywords"
+    content="construction company solapur, residential construction, commercial construction, renovation, building contractor, suyog constructions">
   <meta name="author" content="Suyog Constructions">
   <meta property="og:title" content="Suyog Constructions — Building Dreams, Crafting Excellence">
-  <meta property="og:description" content="Your trusted construction partner in Solapur. Residential, commercial, and renovation excellence for over 15 years.">
+  <meta property="og:description"
+    content="Your trusted construction partner in Solapur. Residential, commercial, and renovation excellence for over 15 years.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://suyogconstructions.com">
   <link rel="canonical" href="https://suyogconstructions.com">
@@ -39,7 +43,9 @@
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/pages.css">
   <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/estimator.css">
 </head>
+
 <body>
 
   <!-- ══ Navigation ══════════════════════════════════════════════════════════ -->
@@ -54,14 +60,21 @@
       </a>
 
       <ul class="nav-links" role="list">
-        <li><a href="/" class="nav-link active">Home</a></li>
-        <li><a href="/about" class="nav-link">About Us</a></li>
-        <li><a href="/services" class="nav-link">Services</a></li>
-        <li><a href="/projects" class="nav-link">Projects</a></li>
-        <li><a href="/contact" class="nav-link">Contact</a></li>
+        <li><a href="/" class="nav-link active" data-i18n="nav_home">Home</a></li>
+        <li><a href="/about" class="nav-link" data-i18n="nav_about">About Us</a></li>
+        <li><a href="/services" class="nav-link" data-i18n="nav_services">Services</a></li>
+        <li><a href="/projects" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="#cost-estimator" class="nav-link" data-i18n="nav_estimator">Cost Estimator</a></li>
+        <li><a href="/contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
       </ul>
 
-      <a href="/contact#inquiry" class="nav-cta desktop" id="nav-cta-btn">Get a Quote</a>
+      <div style="display: flex; align-items: center;">
+        <button class="lang-switch-btn" id="lang-switch-btn" title="मराठी / English">
+          <span class="lang-globe">🌐</span>
+          <span class="lang-btn-text">मराठी</span>
+        </button>
+        <a href="/contact#inquiry" class="nav-cta desktop" id="nav-cta-btn" data-i18n="nav_quote">Get a Quote</a>
+      </div>
 
       <button class="hamburger" id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false">
         <span></span>
@@ -73,12 +86,17 @@
 
   <!-- Mobile Nav -->
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <a href="/" class="nav-link">Home</a>
-    <a href="/about" class="nav-link">About Us</a>
-    <a href="/services" class="nav-link">Services</a>
-    <a href="/projects" class="nav-link">Projects</a>
-    <a href="/contact" class="nav-link">Contact</a>
-    <a href="/contact#inquiry" class="nav-cta">Get a Free Quote</a>
+    <a href="/" class="nav-link" data-i18n="nav_home">Home</a>
+    <a href="/about" class="nav-link" data-i18n="nav_about">About Us</a>
+    <a href="/services" class="nav-link" data-i18n="nav_services">Services</a>
+    <a href="/projects" class="nav-link" data-i18n="nav_projects">Projects</a>
+    <a href="#cost-estimator" class="nav-link" data-i18n="nav_estimator">Cost Estimator</a>
+    <a href="/contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+    <button class="lang-switch-btn" style="margin: 12px 0; width: 100%; justify-content: center;">
+      <span class="lang-globe">🌐</span>
+      <span class="lang-btn-text">मराठी</span>
+    </button>
+    <a href="/contact#inquiry" class="nav-cta" data-i18n="nav_quote">Get a Free Quote</a>
   </div>
 
   <!-- ══ Hero Section ═════════════════════════════════════════════════════════ -->
@@ -90,24 +108,24 @@
     <div class="container hero-content">
       <div class="hero-badge reveal">
         <span class="hero-badge-dot"></span>
-        Trusted Since 1992 · 30+ Years of Excellence
+        <span data-i18n="hero_badge">Trusted Since 1992 · 30+ Years of Excellence</span>
       </div>
 
       <h1 class="hero-title reveal">
-        Building <span class="hero-title-accent glitch-subtle" data-text="Dreams">Dreams</span>,<br>
-        Crafting <span class="hero-title-accent glitch-subtle" data-text="Excellence">Excellence</span>
+        <span data-i18n="hero_title_1">Building Dreams,</span><br>
+        <span data-i18n="hero_title_2">Crafting Excellence</span>
       </h1>
 
-      <p class="hero-description reveal">
+      <p class="hero-description reveal" data-i18n="hero_desc">
         Suyog Constructions delivers premium residential, commercial, and renovation projects
         with unmatched quality, transparent pricing, and on-time delivery across Solapur.
       </p>
 
       <div class="hero-actions reveal">
-        <a href="/contact#inquiry" class="btn btn-primary btn-lg" id="hero-inquiry-btn">
+        <a href="/contact#inquiry" class="btn btn-primary btn-lg" id="hero-inquiry-btn" data-i18n="hero_cta_start">
           🏗️ Start Your Project
         </a>
-        <a href="/projects" class="btn btn-secondary btn-lg" id="hero-portfolio-btn">
+        <a href="/projects" class="btn btn-secondary btn-lg" id="hero-portfolio-btn" data-i18n="hero_cta_portfolio">
           View Our Portfolio
         </a>
       </div>
@@ -115,22 +133,22 @@
       <div class="hero-trust reveal">
         <div class="trust-item">
           <span class="trust-number" data-target="500">0</span><span>+</span>
-          <span class="trust-label">Happy Clients across Solapur</span>
+          <span class="trust-label" data-i18n="trust_clients">Happy Clients across Solapur</span>
         </div>
         <div class="trust-divider" aria-hidden="true"></div>
         <div class="trust-item">
           <span class="trust-number" data-target="500">0</span><span>+</span>
-          <span class="trust-label">Projects Done</span>
+          <span class="trust-label" data-i18n="trust_projects">Projects Done</span>
         </div>
         <div class="trust-divider" aria-hidden="true"></div>
         <div class="trust-item">
-          <span class="trust-number" data-target="15">0</span><span>+</span>
-          <span class="trust-label">Years Experience</span>
+          <span class="trust-number" data-target="30">0</span><span>+</span>
+          <span class="trust-label" data-i18n="trust_experience">Years Experience</span>
         </div>
         <div class="trust-divider" aria-hidden="true"></div>
         <div class="trust-item">
           <span class="trust-number" data-target="100">0</span><span>%</span>
-          <span class="trust-label">Client Satisfaction</span>
+          <span class="trust-label" data-i18n="trust_satisfaction">Client Satisfaction</span>
         </div>
       </div>
     </div>
@@ -159,7 +177,8 @@
         <div class="service-card">
           <div class="service-icon">🏠</div>
           <h3>Residential Construction</h3>
-          <p>Custom bungalows, villas, apartments, and townships built to your exact specifications with premium quality materials.</p>
+          <p>Custom bungalows, villas, apartments, and townships built to your exact specifications with premium quality
+            materials.</p>
           <div class="service-features">
             <span class="service-feature">Bungalows & Villas</span>
             <span class="service-feature">Apartment Complexes</span>
@@ -170,7 +189,8 @@
         <div class="service-card">
           <div class="service-icon">🏢</div>
           <h3>Commercial Construction</h3>
-          <p>State-of-the-art office buildings, retail spaces, hotels, and industrial facilities delivered on time and within budget.</p>
+          <p>State-of-the-art office buildings, retail spaces, hotels, and industrial facilities delivered on time and
+            within budget.</p>
           <div class="service-features">
             <span class="service-feature">Office Complexes</span>
             <span class="service-feature">Retail & Shopping</span>
@@ -181,7 +201,8 @@
         <div class="service-card">
           <div class="service-icon">🔨</div>
           <h3>Renovation & Remodeling</h3>
-          <p>Transform your existing spaces with expert renovation services — from complete overhauls to targeted improvements.</p>
+          <p>Transform your existing spaces with expert renovation services — from complete overhauls to targeted
+            improvements.</p>
           <div class="service-features">
             <span class="service-feature">Home Renovation</span>
             <span class="service-feature">Office Refurbishment</span>
@@ -192,7 +213,8 @@
         <div class="service-card">
           <div class="service-icon">🎨</div>
           <h3>Interior Design</h3>
-          <p>Elevate your interiors with our design and execution expertise, from luxurious residential spaces to premium commercial interiors.</p>
+          <p>Elevate your interiors with our design and execution expertise, from luxurious residential spaces to
+            premium commercial interiors.</p>
           <div class="service-features">
             <span class="service-feature">Custom Furniture</span>
             <span class="service-feature">Premium Finishes</span>
@@ -271,6 +293,163 @@
     </div>
   </section>
 
+  <!-- ══ Instant Construction Cost Estimator ════════════════════════════════ -->
+  <section class="section estimator-section" id="cost-estimator" aria-labelledby="estimator-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="est_tag">Interactive Calculator</span>
+        <h2 class="section-title reveal" id="estimator-heading" data-i18n="est_title">
+          Instant Construction <span>Cost Estimator</span>
+        </h2>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle reveal" data-i18n="est_subtitle">
+          Estimate your building project budget in Solapur in seconds with transparent pricing.
+        </p>
+      </div>
+
+      <div class="estimator-wrapper reveal">
+        <!-- Left: Options & Inputs -->
+        <div class="estimator-inputs">
+
+          <!-- 1. Project Type -->
+          <div>
+            <div class="est-step-title" data-i18n="est_type_label">1. Select Project Type</div>
+            <div class="est-type-grid">
+              <button type="button" class="est-type-btn active" data-type="residential">
+                <span data-i18n="est_type_res">🏠 Residential Bungalow</span>
+              </button>
+              <button type="button" class="est-type-btn" data-type="commercial">
+                <span data-i18n="est_type_comm">🏢 Commercial Complex</span>
+              </button>
+              <button type="button" class="est-type-btn" data-type="renovation">
+                <span data-i18n="est_type_renov">🔨 Renovation / Remodeling</span>
+              </button>
+              <button type="button" class="est-type-btn" data-type="interior">
+                <span data-i18n="est_type_int">🎨 Interior Finishing</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. Area Slider -->
+          <div>
+            <div class="est-area-header">
+              <div class="est-step-title" style="margin-bottom:0;" data-i18n="est_area_label">2. Total Built-up Area (Sq.Ft)</div>
+              <div class="est-area-input-wrap">
+                <input type="number" id="est-area-input" value="1500" min="200" max="50000" step="50">
+                <span>SQ.FT</span>
+              </div>
+            </div>
+            <div class="est-area-box">
+              <input type="range" class="est-slider" id="est-area-slider" min="500" max="10000" value="1500" step="50">
+              <div class="est-slider-markers">
+                <span>500 sqft</span>
+                <span>2,500 sqft</span>
+                <span>5,000 sqft</span>
+                <span>10,000+ sqft</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Number of Floors -->
+          <div>
+            <div class="est-step-title" data-i18n="est_floors_label">3. Number of Floors</div>
+            <div class="est-floors-grid">
+              <div class="est-floor-option">
+                <input type="radio" name="est-floors" id="fl-g" value="g">
+                <label for="fl-g" data-i18n="est_floor_g">G (Ground only)</label>
+              </div>
+              <div class="est-floor-option">
+                <input type="radio" name="est-floors" id="fl-g1" value="g1" checked>
+                <label for="fl-g1" data-i18n="est_floor_g1">G + 1 (2 Floors)</label>
+              </div>
+              <div class="est-floor-option">
+                <input type="radio" name="est-floors" id="fl-g2" value="g2">
+                <label for="fl-g2" data-i18n="est_floor_g2">G + 2 (3 Floors)</label>
+              </div>
+              <div class="est-floor-option">
+                <input type="radio" name="est-floors" id="fl-g3" value="g3">
+                <label for="fl-g3" data-i18n="est_floor_g3">G + 3+ (4+ Floors)</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Quality Package -->
+          <div>
+            <div class="est-step-title" data-i18n="est_quality_label">4. Material & Quality Package</div>
+            <div class="est-tiers-grid">
+              <div class="est-tier-card" data-tier="standard">
+                <div class="est-tier-name" data-i18n="est_tier_std_title">Standard</div>
+                <div class="est-tier-desc" data-i18n="est_tier_std_desc">Branded TMT steel, Ultratech cement, quality 2x2 vitrified tiles, standard fixtures</div>
+              </div>
+              <div class="est-tier-card active" data-tier="premium">
+                <span class="est-tier-badge">Popular</span>
+                <div class="est-tier-name" data-i18n="est_tier_prem_title">Premium</div>
+                <div class="est-tier-desc" data-i18n="est_tier_prem_desc">Top-grade steel/cement, Italian look tiles, teak wood door frames, branded CP fittings</div>
+              </div>
+              <div class="est-tier-card" data-tier="luxury">
+                <div class="est-tier-name" data-i18n="est_tier_lux_title">Luxury</div>
+                <div class="est-tier-desc" data-i18n="est_tier_lux_desc">Italian marble, smart automation wiring, luxury stone facade, designer finishes</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Live Result Card -->
+        <div class="estimator-result">
+          <div class="est-result-header">
+            <span class="est-result-label" data-i18n="est_result_title">Estimated Budget Range</span>
+            <div class="est-cost-display" id="est-cost-range">₹ 32.50 Lakhs – ₹ 37.20 Lakhs</div>
+            <div class="est-rate-box">
+              <span data-i18n="est_rate_title">Average Rate</span>: <strong id="est-avg-rate">₹ 2,244 / sq.ft</strong>
+            </div>
+          </div>
+
+          <!-- Breakdown -->
+          <div class="est-breakdown">
+            <div class="est-breakdown-title" data-i18n="est_breakdown_title">Estimated Cost Distribution</div>
+            <div class="est-breakdown-list">
+              <div class="est-breakdown-item">
+                <span class="est-bd-label" data-i18n="est_bd_civil">Civil & RCC Framing (50%)</span>
+                <span class="est-bd-value" id="est-bd-civil-val">₹ 16.80 Lakhs</span>
+              </div>
+              <div class="est-breakdown-item">
+                <span class="est-bd-label" data-i18n="est_bd_doors">Doors, Windows & Paint (15%)</span>
+                <span class="est-bd-value" id="est-bd-doors-val">₹ 5.04 Lakhs</span>
+              </div>
+              <div class="est-breakdown-item">
+                <span class="est-bd-label" data-i18n="est_bd_flooring">Tiles & Flooring (15%)</span>
+                <span class="est-bd-value" id="est-bd-floor-val">₹ 5.04 Lakhs</span>
+              </div>
+              <div class="est-breakdown-item">
+                <span class="est-bd-label" data-i18n="est_bd_mep">Plumbing & Electrical (12%)</span>
+                <span class="est-bd-value" id="est-bd-mep-val">₹ 4.03 Lakhs</span>
+              </div>
+              <div class="est-breakdown-item">
+                <span class="est-bd-label" data-i18n="est_bd_finish">Fixtures & Finishing (8%)</span>
+                <span class="est-bd-value" id="est-bd-finish-val">₹ 2.69 Lakhs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="est-actions">
+            <a href="#" class="est-whatsapp-btn" id="est-whatsapp-share" target="_blank" rel="noopener">
+              <span data-i18n="est_btn_whatsapp">💬 Send Estimate to WhatsApp</span>
+            </a>
+            <a href="/contact#inquiry" class="est-quote-btn">
+              <span data-i18n="est_btn_quote">📋 Get Detailed Official Quotation</span>
+            </a>
+          </div>
+
+          <div class="est-disclaimer" data-i18n="est_disclaimer">
+            *Disclaimer: This is an estimated price guide based on Solapur market rates. Final price depends on soil condition, exact architectural drawings, and customized material selection.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══ Featured Projects ═════════════════════════════════════════════════════ -->
   <section class="section" id="featured-projects" aria-labelledby="projects-heading">
     <div class="container">
@@ -289,7 +468,8 @@
         <!-- Fallback / initial cards -->
         <div class="project-card" data-category="residential" data-status="ongoing">
           <div class="project-img-wrap">
-            <img src="/images/projects/project-ongoing-gurunanak.jpg" alt="Gurunanak Nagar Residential Complex — Solapur" class="project-real-img" loading="lazy">
+            <img src="/images/projects/project-ongoing-gurunanak.jpg"
+              alt="Gurunanak Nagar Residential Complex — Solapur" class="project-real-img" loading="lazy">
             <span class="badge badge-blue" style="position:absolute;top:12px;right:12px;z-index:2;">🚧 Ongoing</span>
             <div class="project-overlay">
               <a href="/projects" class="project-view-btn">View Details</a>
@@ -307,7 +487,8 @@
 
         <div class="project-card" data-category="residential" data-status="completed">
           <div class="project-img-wrap">
-            <img src="/images/projects/project-residential-3.jpg" alt="Balu Niwas — Luxury Family Residence" class="project-real-img" loading="lazy">
+            <img src="/images/projects/project-residential-3.jpg" alt="Balu Niwas — Luxury Family Residence"
+              class="project-real-img" loading="lazy">
             <div class="project-overlay">
               <a href="/projects" class="project-view-btn">View Details</a>
             </div>
@@ -324,7 +505,8 @@
 
         <div class="project-card" data-category="residential" data-status="completed">
           <div class="project-img-wrap">
-            <img src="/images/projects/project-residential-1.jpg" alt="Modern Multi-Storey Residence — Solapur" class="project-real-img" loading="lazy">
+            <img src="/images/projects/project-residential-1.jpg" alt="Modern Multi-Storey Residence — Solapur"
+              class="project-real-img" loading="lazy">
             <div class="project-overlay">
               <a href="/projects" class="project-view-btn">View Details</a>
             </div>
@@ -364,7 +546,9 @@
           <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-quote">"</div>
-              <p class="testimonial-text">Suyog Constructions built our dream home exactly as we envisioned. The quality of work is exceptional, and the team was professional and punctual throughout the project. Highly recommended!</p>
+              <p class="testimonial-text">Suyog Constructions built our dream home exactly as we envisioned. The quality
+                of work is exceptional, and the team was professional and punctual throughout the project. Highly
+                recommended!</p>
               <div class="testimonial-author">
                 <div class="testimonial-avatar">R</div>
                 <div>
@@ -378,7 +562,9 @@
           <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-quote">"</div>
-              <p class="testimonial-text">We are absolutely thrilled with our home interior. The team understood our requirements perfectly and delivered a stunning result within budget. Their attention to detail is remarkable.</p>
+              <p class="testimonial-text">We are absolutely thrilled with our home interior. The team understood our
+                requirements perfectly and delivered a stunning result within budget. Their attention to detail is
+                remarkable.</p>
               <div class="testimonial-author">
                 <div class="testimonial-avatar">P</div>
                 <div>
@@ -392,7 +578,9 @@
           <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-quote">"</div>
-              <p class="testimonial-text">Our office complex was completed on time and within budget. Suyog Constructions demonstrated excellent project management and construction quality. We are very satisfied clients.</p>
+              <p class="testimonial-text">Our office complex was completed on time and within budget. Suyog
+                Constructions demonstrated excellent project management and construction quality. We are very satisfied
+                clients.</p>
               <div class="testimonial-author">
                 <div class="testimonial-avatar">S</div>
                 <div>
@@ -406,7 +594,9 @@
           <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-quote">"</div>
-              <p class="testimonial-text">The renovation of our old house was done beautifully. The team was cooperative, handled all challenges professionally, and delivered great results. Would definitely work with them again.</p>
+              <p class="testimonial-text">The renovation of our old house was done beautifully. The team was
+                cooperative, handled all challenges professionally, and delivered great results. Would definitely work
+                with them again.</p>
               <div class="testimonial-author">
                 <div class="testimonial-avatar">K</div>
                 <div>
@@ -420,7 +610,9 @@
           <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-quote">"</div>
-              <p class="testimonial-text">Building our bungalow with Suyog Constructions was a wonderful experience. They maintained complete transparency about costs and timelines, and the final result exceeded our expectations.</p>
+              <p class="testimonial-text">Building our bungalow with Suyog Constructions was a wonderful experience.
+                They maintained complete transparency about costs and timelines, and the final result exceeded our
+                expectations.</p>
               <div class="testimonial-author">
                 <div class="testimonial-avatar">A</div>
                 <div>
@@ -448,17 +640,15 @@
       <div class="cta-text">
         <span class="section-tag">Start Today</span>
         <h2 id="cta-heading">Ready to Build Your <span>Dream Project?</span></h2>
-        <p>Get in touch with our team for a free consultation and detailed quotation. Let's bring your vision to life!</p>
+        <p>Get in touch with our team for a free consultation and detailed quotation. Let's bring your vision to life!
+        </p>
       </div>
       <div class="cta-actions">
         <a href="/contact#inquiry" class="btn btn-primary btn-lg" id="cta-inquiry-btn">
           🏗️ Get Free Quote
         </a>
         <a href="https://wa.me/919422458982?text=Hello%20Suyog%20Constructions!%20I%20am%20interested%20in%20your%20construction%20services."
-           class="btn btn-whatsapp btn-lg"
-           target="_blank"
-           rel="noopener noreferrer"
-           id="cta-whatsapp-btn">
+          class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer" id="cta-whatsapp-btn">
           💬 WhatsApp Us
         </a>
       </div>
@@ -477,12 +667,14 @@
               <span class="logo-tagline">Building Excellence</span>
             </div>
           </a>
-          <p>Building dreams and crafting excellence for over 15 years. Your trusted construction partner in Solapur, Maharashtra.</p>
+          <p>Building dreams and crafting excellence for over 15 years. Your trusted construction partner in Solapur,
+            Maharashtra.</p>
           <div class="footer-socials">
             <a href="#" class="social-link" aria-label="Facebook">📘</a>
             <a href="#" class="social-link" aria-label="Instagram">📷</a>
             <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
-            <a href="https://wa.me/919422458982" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+            <a href="https://wa.me/919422458982" class="social-link" aria-label="WhatsApp" target="_blank"
+              rel="noopener">💬</a>
           </div>
         </div>
 
@@ -543,12 +735,12 @@
 
   <!-- WhatsApp Float -->
   <a href="https://wa.me/919422458982?text=Hello%20Suyog%20Constructions!%20I%20am%20interested%20in%20your%20services."
-     class="whatsapp-float"
-     target="_blank"
-     rel="noopener noreferrer"
-     aria-label="Chat with us on WhatsApp"
-     id="whatsapp-float-btn">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"
+    id="whatsapp-float-btn">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
   </a>
 
   <!-- Back to Top -->
@@ -557,8 +749,11 @@
   <!-- Toast Container -->
   <div class="toast-container" id="toast-container" aria-live="polite"></div>
 
+  <script src="/js/i18n.js"></script>
+  <script src="/js/estimator.js"></script>
   <script src="/js/main.js"></script>
   <script src="/js/home.js"></script>
   <script src="/js/animations.js"></script>
 </body>
+
 </html>

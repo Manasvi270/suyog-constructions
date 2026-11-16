@@ -83,6 +83,23 @@
 
   revealElements.forEach(el => revealObserver.observe(el));
 
+  // Immediate reveal for hash targets and on nav click
+  function revealTarget(selector) {
+    const target = document.querySelector(selector);
+    if (target) {
+      target.classList.add('visible');
+      target.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => el.classList.add('visible'));
+    }
+  }
+
+  if (window.location.hash) {
+    revealTarget(window.location.hash);
+  }
+
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash) revealTarget(window.location.hash);
+  });
+
 
   // ── Counter Animation ────────────────────────────────────────────────────────
   function animateCounter(el, target, duration = 2000) {
